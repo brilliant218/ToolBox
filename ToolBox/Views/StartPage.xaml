@@ -9,6 +9,11 @@
     DataContext="{Binding StartPage, Source={StaticResource Locator}}">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="{Binding Title}" Width="200" Height="100" Background="Red"></Button>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="{Binding Title}" Width="200" Height="100" Background="LightBlue"></Button>
+            <Button Content="{Binding SecondPageKey}" Command="{Binding NavigationCommand}" CommandParameter="{Binding SecondPageKey}" Width="200" Height="100" Background="LightBlue" Margin="20,0"></Button>
+            <Button Content="{Binding FirstPageKey}" Command="{Binding NavigationCommand}" CommandParameter="{Binding FirstPageKey}" Width="200" Height="100" Background="LightBlue" Margin="20,0"></Button>
+        </StackPanel>
+
     </Grid>
 </Page>

@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ToolBox.Models;
+using ToolBox.Views;
 
 namespace ToolBox.ViewModels
 {
@@ -27,6 +28,14 @@ namespace ToolBox.ViewModels
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
             SimpleIoc.Default.Register<StartPageViewModel>();
+
+            var nav = new NavigationService();
+            nav.Configure("Start", typeof(StartPage));
+            nav.Configure("FirstPage", typeof(FirstPage));
+            nav.Configure("SecondPage", typeof(SecondPage));
+            SimpleIoc.Default.Register<INavigationService>(()=>nav);
+            SimpleIoc.Default.Register<FirstPageViewModel>();
+            SimpleIoc.Default.Register<SecondPageViewModel>();
 
             InitializeRegistration();
         }
@@ -47,6 +56,16 @@ namespace ToolBox.ViewModels
 
 
             }
+        }
+
+        public FirstPageViewModel FirstPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<FirstPageViewModel>(); }
+        }
+
+        public SecondPageViewModel SecondPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<SecondPageViewModel>(); }
         }
 
         public async void InitializeRegistration()

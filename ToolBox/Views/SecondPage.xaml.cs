@@ -12,8 +12,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +20,9 @@ namespace ToolBox.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StartPage : Page
+    public sealed partial class SecondPage : Page
     {
-        public StartPage()
+        public SecondPage()
         {
             this.InitializeComponent();
         }
